@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: 
+      context: ./Frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  backend:
+    build: 
+      context: ./Backend/Backend
+    ports:
+      - "7274:7274"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ConnectionStrings__DefaultConnection: "Server=db;Database=mydatabase;User=sa;Password=Your_password123;"
+    depends_on:
+      - database
+    networks:
+      - app-network
+
+  database:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      SA_PASSWORD: "YourStrong!Passw0rd"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
