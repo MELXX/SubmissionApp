@@ -10,6 +10,7 @@ namespace DAL.Data.Models
     public class Document:ModelBase
     {
         public string Name { get; set; }
+        public string CloudLink { get; set; }
         public SignOffState SignOffState { get; set; }
         public ICollection<UserDocument> UserDocuments { get; set; }
     }
