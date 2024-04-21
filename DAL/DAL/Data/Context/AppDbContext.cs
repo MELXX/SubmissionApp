@@ -18,6 +18,9 @@ namespace DAL.Data.Context
         public DbSet<GroupPermission> GroupPermissions { get; set; }
         public DbSet<Models.Document> Documents { get; set; }
         public DbSet<UserDocument> UserDocuments { get; set; }
+        public DbSet<Department> GetDepartments { get; set; }
+        public DbSet<Payment> Payments  { get; set; }
+        public DbSet<Recepient> Recepients  { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
         {

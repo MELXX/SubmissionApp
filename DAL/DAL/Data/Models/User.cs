@@ -15,8 +15,11 @@ namespace DAL.Data.Models
         public string Surname { get; set; }
         [Required]
         public string Email { get; set; }
+
+        public ICollection<Payment> Payments { get; set; }
         public ICollection<UserGroup> Groups { get; set; }
         public ICollection<UserDocument> UserDocuments { get; set; }
+
 
     }
 }

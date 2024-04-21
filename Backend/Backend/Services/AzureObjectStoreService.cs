@@ -32,18 +32,7 @@ namespace Backend.Services
         {
             var blobServiceClient = new BlobServiceClient(@"DefaultEndpointsProtocol=https;AccountName=addstorage14bcde;AccountKey=E+XOzfe6RD+xVP994+rkk4SNKgUTwhvnxR16rxyG2GYWp6EuxdK4jj2ExwCxrIu1SIPSp8JzGkM++AStw9lTtA==;EndpointSuffix=core.windows.net");
             string s = folderName ?? _containerName;
-            BlobContainerClient containerClient=blobServiceClient.GetBlobContainerClient("sdfgthjk");
-            if (containerClient == default)
-            {
-                try
-                {
-                    containerClient = await blobServiceClient.CreateBlobContainerAsync(folderName ?? _containerName);
-                }
-                catch (Exception)
-                {
-                    return default;
-                } 
-            }
+            BlobContainerClient containerClient=blobServiceClient.GetBlobContainerClient(folderName ?? _containerName);
 
           
             BlobClient blobClient = containerClient.GetBlobClient(fileName);
