@@ -16,6 +16,7 @@ namespace DAL.Data.Models
         [Required]
         public string Email { get; set; }
         public ICollection<UserGroup> Groups { get; set; }
+        public ICollection<UserDocument> UserDocuments { get; set; }
 
     }
 }

@@ -1,16 +1,6 @@
-using Backend.Interfaces.Services;
 using Backend.Middleware;
-using Backend.Services;
 using DAL.Data.Context;
-using DAL.Data.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.SqlServer;
-using FluentValidation;
-using System;
-using Backend.DTO.Request;
-using Backend.Validation;
-using Microsoft.Extensions.DependencyInjection;
-using System.Configuration;
 using Backend.AppConfiguration;
 namespace Backend
 {

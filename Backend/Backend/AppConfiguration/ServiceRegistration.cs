@@ -15,6 +15,7 @@ namespace Backend.AppConfiguration
             services.AddScoped<IGroupService, GroupService>();
             services.AddScoped<ICRUDServiceBase<UserGroup>, ServiceBase<UserGroup>>();
             services.AddScoped<ICRUDServiceBase<GroupPermission>, ServiceBase<GroupPermission>>();
+            services.AddScoped<IAzureObjectStoreService, AzureObjectStoreService>();
             services.AddScoped<IUserService, UserService>();
         }
     }
