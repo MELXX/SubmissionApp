@@ -1,3 +1,3 @@
-App written in flutter web
+front end App written in angular 
+backend written in asp.net core .net 8
 Backend needs SQL server
-![image](https://github.com/MELXX/SubmissionApp/assets/37559982/ea3a782c-6acf-4832-8b77-04b1d37fed78)
