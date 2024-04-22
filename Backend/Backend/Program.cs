@@ -13,6 +13,7 @@ namespace Backend
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddDirectoryBrowser();
 
             var ConnectionString = Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection") ?? builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(ConnectionString));
@@ -28,6 +29,17 @@ namespace Backend
             CorsConfiguration.Register(builder.Services,builder.Configuration);
 
             var app = builder.Build();
+
+            app.UseFileServer(new FileServerOptions()
+            {
+                EnableDirectoryBrowsing = true,
+                StaticFileOptions =
+    {
+        ServeUnknownFileTypes = true,
+        DefaultContentType = "application/octet-stream"
+    }
+            });
+
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
